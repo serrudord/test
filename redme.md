@@ -1,3 +1,9 @@
+## GIT
+
+git add . && git commit -S -m "Prueba 11" && git push
+
+## Docker
+
 https://linuxhit.com/how-to-create-docker-images-with-github-actions/
 
 

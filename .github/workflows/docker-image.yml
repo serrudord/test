@@ -5,21 +5,24 @@ name: Docker Builds
 # Controls when the workflow will run
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - 'main'
     tags:
       - 'v*.*.*'
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - 'main'
 
-# permissions are needed if pushing to ghcr.io
 permissions: 
+  contents: read
   packages: write
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build-dogecoin:
+  build:
     runs-on: ubuntu-latest
     steps:
+
       # Get the repositery's code
       - name: Checkout
         uses: actions/checkout@v2
@@ -39,8 +42,7 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
 
-      -
-        name: Docker meta
+      - name: Docker meta
         id: meta_prueba
         uses: docker/metadata-action@v3
         with:
@@ -56,6 +58,7 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
             type=sha
+
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
