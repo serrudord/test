@@ -17,5 +17,5 @@ jobs:
     - name: Build the Docker image
       run: |
         echo "${{ secrets.DOCKER_PASS }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
-        docker build . --file Dockerfile --tag "${{ secrets.DOCKER_USER }}"/prueba:$(date +%s)
-        docker push "${{ secrets.DOCKER_USER }}"/prueba:$(date +%s)
+        docker build . --file Dockerfile --tag rserrudo/prueba:$(date +%s)
+        docker push rserrudo/prueba:$(date +%s)
