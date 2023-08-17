@@ -11,3 +11,10 @@ run: |
         echo "${{ secrets.DOCKER_USER }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
         docker build . --file Dockerfile --tag my-image-name:$(date +%s)
         docker push ${{ secrets.DOCKER_USER }}/prueba:latest
+
+
+
+run: |
+        echo "${{ secrets.DOCKER_PASS }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
+        docker build . --file Dockerfile --tag rserrudo/prueba:$(date +%s)
+        docker push rserrudo/prueba:$(date +%s)
