@@ -2,6 +2,11 @@
 
 git add . && git commit -S -m "Prueba 11" && git push
 
+$ git checkout <existing_branch>
+
+$ git checkout -b <new_branch>
+
+
 ## Docker
 
 https://linuxhit.com/how-to-create-docker-images-with-github-actions/
