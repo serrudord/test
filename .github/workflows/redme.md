@@ -18,3 +18,9 @@ run: |
         echo "${{ secrets.DOCKER_PASS }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
         docker build . --file Dockerfile --tag rserrudo/prueba:$(date +%s)
         docker push rserrudo/prueba:$(date +%s)
+
+
+
+https://dev.to/cloudx/multi-arch-docker-images-the-easy-way-with-github-actions-4k54
+
+https://github.com/pabloromeo/docker-dogecoin/blob/master/.github/workflows/main.yml

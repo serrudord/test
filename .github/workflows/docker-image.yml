@@ -8,6 +8,10 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+
+# permissions are needed if pushing to ghcr.io
+permissions: 
+  packages: write
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -35,12 +39,12 @@ jobs:
 
       -
         name: Docker meta
-        id: meta_dogecoin
+        id: meta_prueba
         uses: docker/metadata-action@v3
         with:
           # list of Docker images to use as base name for tags
           images: |
-            ghcr.io/rserrudo/prueba
+            rserrudo/prueba
           # generate Docker tags based on the following events/attributes
           tags: |
             type=schedule
@@ -56,5 +60,5 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm/v7
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta_dogecoin.outputs.tags }}
-          labels: ${{ steps.meta_dogecoin.outputs.labels }}
+          tags: ${{ steps.meta_prueba.outputs.tags }}
+          labels: ${{ steps.meta_prueba.outputs.labels }}
