@@ -1,7 +1,10 @@
 https://linuxhit.com/how-to-create-docker-images-with-github-actions/
 
 
+https://github.com/webmagicinformatica/gitops-demo
 
+
+https://stackoverflow.com/questions/51489359/docker-using-password-via-the-cli-is-insecure-use-password-stdin
 
 
 run: |
