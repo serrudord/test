@@ -13,9 +13,6 @@ on:
   pull_request:
     branches:
       - 'main'
-    tags:
-      - 'v*.*.*'
-      - 'latest2'
 
 permissions: 
   contents: read
