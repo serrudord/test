@@ -15,6 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-            echo "${{ DOCKER_USER }}" | docker login -u "${{ DOCKER_USER }}" --password-stdin
-            docker push ${{ DOCKER_USER }}/prueba:latest
+      run: |
+        echo "${{ secrets.DOCKER_USER }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
+        docker build . --file Dockerfile --tag ${{ secrets.DOCKER_USER }}/prueba:$(date +%s)
+        docker push ${{ secrets.DOCKER_USER }}/prueba:$(date +%s)
